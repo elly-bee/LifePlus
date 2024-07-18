@@ -1,0 +1,65 @@
+{% extends 'layouts/base-presentation.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+<div class="col-md-8 mb-lg-0 mb-6 align-items-center " style="padding-top: 100px; padding-left: 120px;" >
+    <div class="card mt-4">
+      <div class="card-header pb-0 p-3">
+        <div class="row">
+
+                <table class="table align-items-center mb-0">
+                    <thead>
+                    <tr>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Description</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Amount</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employed</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for trans in user_trans %}
+
+                    <tr>
+                        <td class='align-middle text-left'>
+                            <span class="text-secondary text-xs font-weight-bold">Tran-No - {{trans.id}}</span>
+                        </td>
+                        <td class="align-middle text-left">
+                            <span class="text-secondary text-xs font-weight-bold">{{trans.desc}}</span>
+                        </td>
+                        <td class="align-middle text-left">
+                            <span class="text-secondary text-xs font-weight-bold">{{ trans.amount }}</span>
+                        </td>
+                        <td class="align-middle text-left">
+                            <span class="text-secondary text-xs font-weight-bold">{{ trans.amount }}</span>
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+                    
+
+                    
+                    
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#userTable').DataTable({
+        "pageLength": 10
+      });
+    });
+    
+
+  </script>
+  {% endblock content %}

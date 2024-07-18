@@ -1,0 +1,22 @@
+<!-- templates/home/partials/node.html -->
+
+
+<main class="cd__main">
+<div class="person">
+    
+    <div>{{ node.user }}</div>
+</div>
+
+{% if node.children %}
+    
+        <nav class="nav">
+            <ul>
+        {% for child in node.children %}
+            <li>{% include 'home/node.html' with node=child %}</li>
+        {% endfor %}
+            </ul>
+        </nav>
+    
+{% endif %}
+</main>
+
